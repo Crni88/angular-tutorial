@@ -1,8 +1,24 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Hero } from '../hero';
-import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
-import { HeroService } from '../hero.service';
+import {
+  Component,
+  OnInit,
+  Input
+} from '@angular/core';
+import {
+  Hero
+} from '../hero';
+import {
+  ActivatedRoute
+} from '@angular/router';
+import {
+  Location
+} from '@angular/common';
+import {
+  HeroService
+} from '../hero.service';
+import {
+  SuperPowers
+} from '../hero-powers';
+
 @Component({
   selector: 'app-hero-detail',
   templateUrl: './hero-detail.component.html',
@@ -23,17 +39,29 @@ export class HeroDetailComponent implements OnInit {
   getHero(): void {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.heroService.getHero(id).subscribe(hero => this.hero = hero);
+    //console.log(this.hero);
   }
 
   goBack(): void {
     this.location.back();
   }
 
+
   displayVal: string = "";
 
-  addPower(val: string): void {
-    this.displayVal = val;
-    console.log("Power added!", this.displayVal);
-  }
 
+  power: SuperPowers = {
+    id: 0,
+    superPowerName: ""
+  };
+
+
+  addPower(val: string): void {
+    this.power.id = this.power.id + 1;
+    this.power.superPowerName = val;
+
+    const objectArray = Object.entries(this.power);
+    console.log(objectArray);
+
+  }
 }

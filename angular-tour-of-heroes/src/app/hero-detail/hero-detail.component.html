@@ -7,8 +7,8 @@
   </div>
   <div>
     <label for="hero-power">Add superpower: </label>
-    <input id="hero-power" #power [(ngModel)]="hero.powers" placeholder="Superpower">
-    <button type="button" (click)="addPower(power.value)">Add</button>
+    <input id="hero-power" #powerInput [(ngModel)]="hero.powers" placeholder="Superpower">
+    <button type="button" (click)="addPower(powerInput.value)">Add</button>
   </div>
   <button type="button" (click)="goBack()">go back</button>
 </div>
