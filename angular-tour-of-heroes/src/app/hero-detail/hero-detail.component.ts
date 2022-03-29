@@ -46,15 +46,11 @@ export class HeroDetailComponent implements OnInit {
     this.location.back();
   }
 
-
   displayVal: string = "";
-
-
   power: SuperPowers = {
     id: 0,
     superPowerName: ""
   };
-
 
   addPower(): void {
     this.power.id = this.power.id + 1;
