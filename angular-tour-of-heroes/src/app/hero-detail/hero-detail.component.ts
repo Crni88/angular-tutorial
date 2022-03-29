@@ -56,12 +56,9 @@ export class HeroDetailComponent implements OnInit {
   };
 
 
-  addPower(val: string): void {
+  addPower(): void {
     this.power.id = this.power.id + 1;
-    this.power.superPowerName = val;
-
-    const objectArray = Object.entries(this.power);
-    console.log(objectArray);
-
+    this.hero?.powers.push({ ...this.power });
+    console.log(this.hero);
   }
 }

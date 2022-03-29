@@ -7,8 +7,13 @@
   </div>
   <div>
     <label for="hero-power">Add superpower: </label>
-    <input id="hero-power" #powerInput [(ngModel)]="hero.powers" placeholder="Superpower">
-    <button type="button" (click)="addPower(powerInput.value)">Add</button>
+    <input id="hero-power" [(ngModel)]="power.superPowerName" placeholder=" Superpower">
+    <button type="button" (click)="addPower()">Add</button>
   </div>
-  <button type="button" (click)="goBack()">go back</button>
+  <div *ngIf="hero.powers[0]">
+    <h3 *ngFor="let power of hero.powers">
+      {{power.superPowerName}}
+    </h3>
+  </div>
+  <button type=" button" (click)="goBack()">go back</button>
 </div>
